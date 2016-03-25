@@ -1,0 +1,42 @@
+{
+  "bundles": {
+    "dist/app-build": {
+      "includes": [
+        "[*]",
+        "*.html!text",
+        "*.css!text"
+      ],
+      "options": {
+        "inject": true,
+        "minify": true
+      }
+    },
+    "dist/aurelia": {
+      "includes": [
+        "aurelia-animator-css",
+        "aurelia-api",
+        "aurelia-auth",
+        "aurelia-bootstrapper",
+        "aurelia-event-aggregator",
+        "aurelia-fetch-client",
+        "aurelia-framework",
+        "aurelia-history-browser",
+        "aurelia-loader-default",
+        "aurelia-logging-console",
+        "aurelia-notification",
+        "aurelia-router",
+        "aurelia-templating",
+        "aurelia-templating-binding",
+        "aurelia-templating-resources",
+        "aurelia-templating-router",
+        "aurelia-validation",
+        "bootstrap",
+        "bootstrap/css/bootstrap.css!text"
+      ],
+      "options": {
+        "inject": true,
+        "minify": true
+      }
+    }
+  }
+}
