@@ -1,5 +1,6 @@
 <template>
-  <require from="navigation.html"></require>
+  <require from="./number-format"></require>
+  <require from="./navigation.html"></require>
 
   <header>
     <navigation></navigation>
@@ -14,15 +15,42 @@
               <tr>
                 <th>Measurement Type</th>
                 <th>Size per Value [bytes]</th>
+                <th>Size per Interval [bytes]</th>
+                <th>Number of Measurements</th>
+                <th>Measurement Interval [sec]</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Ping</td>
-                <td>48</td>
+              <tr repeat.for="measurement of measurements">
+                <td>${measurement.name}</td>
+                <td>${measurement.size}</td>
+                <td>${measurement.number * measurement.size | numberFormat}</td>
+                <td><input type="number" name="number" value.bind="measurement.number" min="0"></td>
+                <td><input type="number" name="interval" value.bind="measurement.interval" min="0"></td>
               </tr>
             </tbody>
           </table>
+
+          <table class="table table-inverse">
+            <thead>
+              <tr>
+                <th>Measurement Type</th>
+                <th>Size per Day [bytes]</th>
+                <th>Size per Week [bytes]</th>
+                <th>Size per Year [bytes]</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr repeat.for="measurement of measurements">
+                <td>${measurement.name}</td>
+                <td>${measurement.number * measurement.size | numberFormat}</td>
+                <td>${measurement.number * measurement.size | numberFormat}</td>
+                <td>${measurement.number * measurement.size | numberFormat}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-lg-6">
         </div>
       </div>
     </div>
