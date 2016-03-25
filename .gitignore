@@ -1,6 +1,8 @@
 node_modules
 jspm_packages
 bower_components
+dist
+style
 .idea
 .DS_STORE
 *.swp
