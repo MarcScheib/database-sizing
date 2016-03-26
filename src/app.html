@@ -17,7 +17,6 @@
                 <th>Size per Value [bytes]</th>
                 <th>Size per Interval [bytes]</th>
                 <th>Number of Measurements</th>
-                <th>Measurement Interval [sec]</th>
               </tr>
             </thead>
             <tbody>
@@ -26,7 +25,6 @@
                 <td>${measurement.size}</td>
                 <td>${measurement.number * measurement.size | numberFormat}</td>
                 <td><input type="number" name="number" value.bind="measurement.number" min="0"></td>
-                <td><input type="number" name="interval" value.bind="measurement.interval" min="0"></td>
               </tr>
             </tbody>
           </table>
@@ -38,19 +36,39 @@
                 <th>Size per Day [bytes]</th>
                 <th>Size per Week [bytes]</th>
                 <th>Size per Year [bytes]</th>
+                <th>Measurement Interval [sec]</th>
               </tr>
             </thead>
             <tbody>
               <tr repeat.for="measurement of measurements">
                 <td>${measurement.name}</td>
-                <td>${measurement.number * measurement.size | numberFormat}</td>
-                <td>${measurement.number * measurement.size | numberFormat}</td>
-                <td>${measurement.number * measurement.size | numberFormat}</td>
+                <td>${measurement.number * measurement.size * day / measurement.interval | numberFormat}</td>
+                <td>${measurement.number * measurement.size * week / measurement.interval | numberFormat}</td>
+                <td>${measurement.number * measurement.size * year / measurement.interval | numberFormat}</td>
+                <td><input type="number" name="interval" value.bind="measurement.interval" min="0"></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="col-lg-6">
+          <table class="table table-inverse">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Size per Day [bytes]</th>
+                <th>Size per Week [bytes]</th>
+                <th>Size per Year [bytes]</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Estimated Size</th>
+                <td>${sizePerDay | numberFormat}</td>
+                <td>${sizePerWeek | numberFormat}</td>
+                <td>${sizePerYear | numberFormat}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
