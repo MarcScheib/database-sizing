@@ -9,7 +9,60 @@
   <main>
     <div class="container-fluid" id="content-container">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-xs-12">
+          <table class="table">
+            <thead  class="thead-inverse">
+              <tr>
+                <th></th>
+                <th>Size per Day [bytes]</th>
+                <th>Size per Week [bytes]</th>
+                <th>Size per Year [bytes]</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-success">
+                <th>Estimated Size</th>
+                <td>${sizePerDay | numberFormat}</td>
+                <td>${sizePerWeek | numberFormat}</td>
+                <td>${sizePerYear | numberFormat}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table table-striped">
+            <thead class="thead-inverse">
+              <tr>
+                <th>Data Aggregation Settings</th>
+                <th>Value</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Enable/Disable Aggregation</td>
+                <td><div class="onoffswitch">
+                  <input disabled type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="data-aggregation" checked.bind="dataAggregation">
+                  <label class="onoffswitch-label" for="data-aggregation">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                  </label>
+                </div></td>
+                <td>Specifies whether data should be aggregated on a three-stage basis.</td>
+              </tr>
+              <tr if.bind="dataAggregation">
+                <td>Stage 1 Age</td>
+                <td></td>
+                <td>The number of days after which raw data will be aggregated to the interval of stage 1.</td>
+              </tr>
+              <tr if.bind="dataAggregation">
+                <td>Stage 1 Interval</td>
+                <td></td>
+                <td>The interval of stage 1 in hours that will be used to aggregate raw data. All rows of an interval will be aggregated to one row.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-lg-6 col-xs-12">
           <table class="table table-inverse">
             <thead>
               <tr>
@@ -24,7 +77,12 @@
                 <td>${measurement.name}</td>
                 <td>${measurement.size}</td>
                 <td>${measurement.number * measurement.size | numberFormat}</td>
-                <td><input type="number" name="number" value.bind="measurement.number" min="0"></td>
+                <td>
+                  <div class="input-group">
+                    <input type="number" name="number" class="form-control form-number-input" value.bind="measurement.number" min="0">
+                    <span class="input-group-addon input-group-addon-no-size">#</span>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -45,27 +103,11 @@
                 <td>${measurement.number * measurement.size * day / measurement.interval | numberFormat}</td>
                 <td>${measurement.number * measurement.size * week / measurement.interval | numberFormat}</td>
                 <td>${measurement.number * measurement.size * year / measurement.interval | numberFormat}</td>
-                <td><input type="number" name="interval" value.bind="measurement.interval" min="0"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-lg-6">
-          <table class="table table-inverse">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Size per Day [bytes]</th>
-                <th>Size per Week [bytes]</th>
-                <th>Size per Year [bytes]</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Estimated Size</th>
-                <td>${sizePerDay | numberFormat}</td>
-                <td>${sizePerWeek | numberFormat}</td>
-                <td>${sizePerYear | numberFormat}</td>
+                <td>
+                  <div class="input-group">
+                    <input type="number" name="interval" class="form-control form-number-input" value.bind="measurement.interval" min="0">
+                    <span class="input-group-addon input-group-addon-no-size">s</span>
+                  </div></td>
               </tr>
             </tbody>
           </table>

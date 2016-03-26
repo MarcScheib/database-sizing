@@ -1,4 +1,4 @@
-import {ViewLocator, LogManager} from 'aurelia-framework';
+import {LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
 
 LogManager.addAppender(new ConsoleAppender());

@@ -6,6 +6,9 @@ export class App {
   week = 604800;
   year = 31536000;
 
+  // data aggregation settings
+  dataAggregation = false;
+
   constructor() {
     this.measurements = measurements;
   }
