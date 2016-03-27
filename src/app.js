@@ -1,6 +1,8 @@
 import {measurements} from './measurements';
+import {units} from './units';
 
 export class App {
+  units = [];
   measurements = {};
   day = 86400;
   week = 604800;
@@ -8,8 +10,10 @@ export class App {
 
   // data aggregation settings
   dataAggregation = false;
+  unitId = 1;
 
   constructor() {
+    this.units = units;
     this.measurements = measurements;
   }
 
@@ -18,7 +22,7 @@ export class App {
     for (let i = 0; i < this.measurements.length; i++) {
       size += this.measurements[i].size * this.measurements[i].number * this.day / this.measurements[i].interval;
     }
-    return size;
+    return size / this.units[this.unitId].factor;
   }
 
   get sizePerWeek() {
@@ -26,7 +30,7 @@ export class App {
     for (let i = 0; i < this.measurements.length; i++) {
       size += this.measurements[i].size * this.measurements[i].number * this.week / this.measurements[i].interval;
     }
-    return size;
+    return size / this.units[this.unitId].factor;
   }
 
   get sizePerYear() {
@@ -34,6 +38,6 @@ export class App {
     for (let i = 0; i < this.measurements.length; i++) {
       size += this.measurements[i].size * this.measurements[i].number * this.year / this.measurements[i].interval;
     }
-    return size;
+    return size / this.units[this.unitId].factor;
   }
 }
