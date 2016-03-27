@@ -8,19 +8,31 @@
       ],
       "options": {
         "inject": true,
-        "minify": true
+        "minify": true,
+        "depCache": true,
+        "rev": false
       }
     },
     "dist/aurelia": {
       "includes": [
-        "aurelia-bootstrapper",
         "aurelia-framework",
+        "aurelia-bootstrapper",
+        "aurelia-router",
+        "aurelia-templating-binding",
+        "aurelia-polyfills",
+        "aurelia-templating-resources",
+        "aurelia-templating-router",
+        "aurelia-loader-default",
+        "aurelia-history-browser",
+        "aurelia-logging-console",
         "jquery",
         "bootstrap"
       ],
       "options": {
         "inject": true,
-        "minify": true
+        "minify": true,
+        "depCache": false,
+        "rev": false
       }
     }
   }
