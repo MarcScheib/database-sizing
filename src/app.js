@@ -6,13 +6,14 @@ import {units} from './units';
 export class App {
   units = [];
   measurements = {};
-  day = 86400;
-  week = 604800;
-  year = 31536000;
+  day = 86400; // seconds
+  week = 604800; // seconds
+  year = 31536000; // seconds
+  customTime = 0; // days
 
   // data aggregation settings
   dataAggregation = false;
-  unitId = 1;
+  unitId = 2;
 
   constructor() {
     this.units = units;
@@ -41,5 +42,23 @@ export class App {
       size += this.measurements[i].size * this.measurements[i].number * this.year / this.measurements[i].interval;
     }
     return size / this.units[this.unitId].factor;
+  }
+
+  get customSizeNonAggregated() {
+    let size = 0;
+    for (let i = 0; i < this.measurements.length; i++) {
+      size += this.measurements[i].size * this.measurements[i].number * this.getDaysInSeconds(this.customTime) / this.measurements[i].interval;
+    }
+    return size / this.units[this.unitId].factor;
+  }
+
+  get customSizeAggregated() {
+    let size = 0;
+
+    return size / this.units[this.unitId].factor;
+  }
+
+  getDaysInSeconds(days) {
+    return days * 24 * 60 * 60;
   }
 }

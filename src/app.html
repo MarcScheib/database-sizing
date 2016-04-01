@@ -20,11 +20,34 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="table-success">
-                <th>Estimated Size</th>
+              <tr class="table-info">
+                <th>Overall Size</th>
                 <td>${sizePerDay | numberFormat}</td>
                 <td>${sizePerWeek | numberFormat}</td>
                 <td>${sizePerYear | numberFormat}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table">
+            <thead class="thead-inverse">
+              <tr>
+                <th>Custom Time</th>
+                <th>Non-Aggregated Size</th>
+                <th if.bind="dataAggregation">Aggregated Size</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-info">
+                <td>
+                  <div class="input-group">
+                    <input type="number" name="interval" class="form-control form-number-input"
+                           value.bind="customTime" min="0">
+                    <span class="input-group-addon input-group-addon-no-size">d</span>
+                  </div>
+                </td>
+                <td>${customSizeNonAggregated | numberFormat}</td>
+                <td if.bind="dataAggregation">${customSizeAggregated | numberFormat}</td>
               </tr>
             </tbody>
           </table>
@@ -120,9 +143,15 @@
             <tbody>
               <tr repeat.for="measurement of measurements">
                 <td>${measurement.name}</td>
-                <td>${measurement.number * measurement.size * day / measurement.interval / units[unitId].factor | numberFormat}</td>
-                <td>${measurement.number * measurement.size * week / measurement.interval / units[unitId].factor | numberFormat}</td>
-                <td>${measurement.number * measurement.size * year / measurement.interval / units[unitId].factor | numberFormat}</td>
+                <td>${measurement.number * measurement.size * day / measurement.interval / units[unitId].factor |
+                  numberFormat}
+                </td>
+                <td>${measurement.number * measurement.size * week / measurement.interval / units[unitId].factor |
+                  numberFormat}
+                </td>
+                <td>${measurement.number * measurement.size * year / measurement.interval / units[unitId].factor |
+                  numberFormat}
+                </td>
                 <td>
                   <div class="input-group">
                     <input type="number" name="interval" class="form-control form-number-input"
