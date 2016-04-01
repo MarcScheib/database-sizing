@@ -70,9 +70,8 @@
   "jspm": {
     "dependencies": {
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.1.2.0",
-      "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.2.0",
+      "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.2.1",
       "bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
-      "fetch": "github:github/fetch@^0.11.0",
       "font-awesome": "github:FortAwesome/font-awesome@^4.5.0",
       "jquery": "github:components/jquery@^2.2.1",
       "text": "github:systemjs/plugin-text@^0.0.4"
