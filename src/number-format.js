@@ -1,5 +1,11 @@
 export class NumberFormatValueConverter {
   toView(value) {
-    return value.toLocaleString('value', {minimumFractionDigits: 0});
+    let valueString = value.toLocaleString('value', {minimumFractionDigits: 0});
+
+    if (value > 0 && valueString === '0') {
+      return '> 0';
+    }
+
+    return valueString;
   }
 }
