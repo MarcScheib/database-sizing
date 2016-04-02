@@ -105,20 +105,28 @@
           </table>
         </div>
         <div class="col-lg-6 col-xs-12">
-          <table class="table table-inverse">
-            <thead>
+          <table class="table table-striped">
+            <thead class="thead-inverse">
               <tr>
                 <th>Measurement Type</th>
-                <th>Size per Value [bytes]</th>
-                <th>Size per Interval</th>
+                <th>Size per Measurement [bytes]</th>
+                <th>Measurement Interval</th>
                 <th>Number of Measurements</th>
               </tr>
             </thead>
             <tbody>
               <tr repeat.for="measurement of measurements">
                 <td>${measurement.name}</td>
-                <td>${measurement.size}</td>
-                <td>${measurement.number * measurement.size / units[unitId].factor | numberFormat}</td>
+                <td><span
+                  title="${measurement.values} value${measurement.values != 1 ? 's' : ''} à ${measurement.sizePerValue} bytes">${measurement.size}</span>
+                </td>
+                <td>
+                  <div class="input-group">
+                    <input type="number" name="interval" class="form-control form-number-input"
+                           value.bind="measurement.interval" min="0">
+                    <span class="input-group-addon input-group-addon-no-size">s</span>
+                  </div>
+                </td>
                 <td>
                   <div class="input-group">
                     <input type="number" name="number" class="form-control form-number-input"
@@ -130,19 +138,20 @@
             </tbody>
           </table>
 
-          <table class="table table-inverse">
-            <thead>
+          <table class="table table-striped">
+            <thead class="thead-inverse">
               <tr>
                 <th>Measurement Type</th>
+                <th>Size per Interval</th>
                 <th>Size per Day</th>
                 <th>Size per Week</th>
                 <th>Size per Year</th>
-                <th>Measurement Interval</th>
               </tr>
             </thead>
             <tbody>
               <tr repeat.for="measurement of measurements">
                 <td>${measurement.name}</td>
+                <td>${measurement.number * measurement.size / units[unitId].factor | numberFormat}</td>
                 <td>${measurement.number * measurement.size * day / measurement.interval / units[unitId].factor |
                   numberFormat}
                 </td>
@@ -151,13 +160,6 @@
                 </td>
                 <td>${measurement.number * measurement.size * year / measurement.interval / units[unitId].factor |
                   numberFormat}
-                </td>
-                <td>
-                  <div class="input-group">
-                    <input type="number" name="interval" class="form-control form-number-input"
-                           value.bind="measurement.interval" min="0">
-                    <span class="input-group-addon input-group-addon-no-size">s</span>
-                  </div>
                 </td>
               </tr>
             </tbody>
