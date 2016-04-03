@@ -1,6 +1,6 @@
 {
   "name": "DatabaseSizing",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Simple web application database sizing calculator",
   "keywords": [
     "database",
