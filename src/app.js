@@ -12,8 +12,14 @@ export class App {
   customTime = 0; // days
 
   // data aggregation settings
-  dataAggregation = false;
   unitId = 2;
+  dataAggregation = false;
+  stage1age = 14; // days
+  stage1interval = 1; // hours
+  stage2age = 60; // days
+  stage2interval = 8; // hours
+  stage3age = 180; // days
+  stage3interval = 24; // hours
 
   constructor() {
     this.units = units;

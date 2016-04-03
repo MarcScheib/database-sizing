@@ -41,8 +41,7 @@
               <tr class="table-info">
                 <td>
                   <div class="input-group">
-                    <input type="number" name="interval" class="form-control form-number-input"
-                           value.bind="customTime" min="0">
+                    <input type="number" class="form-control form-number-input" value.bind="customTime" min="0">
                     <span class="input-group-addon input-group-addon-no-size">d</span>
                   </div>
                 </td>
@@ -79,27 +78,76 @@
                 <td>Enable/Disable Aggregation</td>
                 <td>
                   <div class="onoffswitch">
-                    <input disabled type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
-                           id="data-aggregation" checked.bind="dataAggregation">
+                    <input disabled type="checkbox" class="onoffswitch-checkbox" id="data-aggregation"
+                           checked.bind="dataAggregation">
                     <label class="onoffswitch-label" for="data-aggregation">
                       <span class="onoffswitch-inner"></span>
                       <span class="onoffswitch-switch"></span>
                     </label>
                   </div>
                 </td>
-                <td>Specifies whether data should be aggregated on a three-stage basis.</td>
+                <td>Enables three-stage based data aggregation.</td>
               </tr>
               <tr if.bind="dataAggregation">
                 <td>Stage 1 Age</td>
-                <td></td>
-                <td>The number of days after which raw data will be aggregated to the interval of stage 1.</td>
+                <td>
+                  <div class="input-group">
+                    <input type="number" class="form-control form-number-input" value.bind="stage1age" min="0">
+                    <span class="input-group-addon input-group-addon-no-size">d</span>
+                  </div>
+                </td>
+                <td>Necessary raw data age for stage 1 aggregation.</td>
               </tr>
               <tr if.bind="dataAggregation">
                 <td>Stage 1 Interval</td>
-                <td></td>
-                <td>The interval of stage 1 in hours that will be used to aggregate raw data. All rows of an interval
-                  will be aggregated to one row.
+                <td>
+                  <div class="input-group">
+                    <input type="number" class="form-control form-number-input"
+                           value.bind="stage1interval" min="0">
+                    <span class="input-group-addon input-group-addon-no-size">h</span>
+                  </div>
                 </td>
+                <td>Stage 1 aggregation interval.</td>
+              </tr>
+              <tr if.bind="dataAggregation">
+                <td>Stage 2 Age</td>
+                <td>
+                  <div class="input-group">
+                    <input type="number" class="form-control form-number-input" value.bind="stage2age" min="0">
+                    <span class="input-group-addon input-group-addon-no-size">d</span>
+                  </div>
+                </td>
+                <td>Necessary raw data age for stage 2 aggregation.</td>
+              </tr>
+              <tr if.bind="dataAggregation">
+                <td>Stage 2 Interval</td>
+                <td>
+                  <div class="input-group">
+                    <input type="number" class="form-control form-number-input" value.bind="stage2interval" min="0">
+                    <span class="input-group-addon input-group-addon-no-size">h</span>
+                  </div>
+                </td>
+                <td>Stage 2 aggregation interval.</td>
+              </tr>
+              <tr if.bind="dataAggregation">
+                <td>Stage 3 Age</td>
+                <td>
+                  <div class="input-group">
+                    <input type="number" class="form-control form-number-input" value.bind="stage3age" min="0">
+                    <span class="input-group-addon input-group-addon-no-size">d</span>
+                  </div>
+                </td>
+                <td>Necessary raw data age for stage 3 aggregation.</td>
+              </tr>
+              <tr if.bind="dataAggregation">
+                <td>Stage 3 Interval</td>
+                <td>
+                  <div class="input-group">
+                    <input type="number" class="form-control form-number-input" value.bind="stage3interval" min="0">
+                    <span class="input-group-addon input-group-addon-no-size">h</span>
+                  </div>
+                </td>
+                <td>Stage 3 aggregation interval.</td>
               </tr>
             </tbody>
           </table>
@@ -122,15 +170,14 @@
                 </td>
                 <td>
                   <div class="input-group">
-                    <input type="number" name="interval" class="form-control form-number-input"
-                           value.bind="measurement.interval" min="0">
+                    <input type="number" class="form-control form-number-input" value.bind="measurement.interval"
+                           min="0">
                     <span class="input-group-addon input-group-addon-no-size">s</span>
                   </div>
                 </td>
                 <td>
                   <div class="input-group">
-                    <input type="number" name="number" class="form-control form-number-input"
-                           value.bind="measurement.number" min="0">
+                    <input type="number" class="form-control form-number-input" value.bind="measurement.number" min="0">
                     <span class="input-group-addon input-group-addon-no-size">#</span>
                   </div>
                 </td>
