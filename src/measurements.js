@@ -3,17 +3,17 @@ import {measurementTypes} from './measurement-types';
 export let measurements = [
   {
     name: 'Ping',
-    type: measurementTypes.ping,
+    type: measurementTypes[0],
     values: 1,
-    size: 1 * measurementTypes.ping.sizePerValue,
+    size: measurementTypes[0].sizePerValue,
     number: 0,
     interval: 60
   },
   {
     name: 'SNMP Interface',
-    type: measurementTypes.snmp,
+    type: measurementTypes[1],
     values: 12,
-    size: 12 * measurementTypes.snmp.sizePerValue,
+    size: 12 * measurementTypes[1].sizePerValue,
     number: 0,
     interval: 300
   }

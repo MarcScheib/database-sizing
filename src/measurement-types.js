@@ -1,11 +1,17 @@
-export let measurementTypes = {
-  ping: {
-    sizePerValue: 48
+export let measurementTypes = [
+  {
+    displayName: 'Ping',
+    sizePerValue: 48,
+    defaultInterval: 60
   },
-  snmp: {
-    sizePerValue: 64
+  {
+    displayName: 'SNMP',
+    sizePerValue: 64,
+    defaultInterval: 300
   },
-  bps: {
-    sizePerValue: 64
+  {
+    displayName: 'Business Process Script',
+    sizePerValue: 64,
+    defaultInterval: 300
   }
-};
+];

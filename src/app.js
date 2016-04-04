@@ -1,7 +1,8 @@
-import 'jquery';
-import 'bootstrap';
-import {measurements} from './measurements';
-import {units} from './units';
+import "jquery";
+import "bootstrap";
+import {measurementTypes} from "./measurement-types";
+import {measurements} from "./measurements";
+import {units} from "./units";
 
 export class App {
   units = [];
@@ -21,8 +22,14 @@ export class App {
   stage3age = 180; // days
   stage3interval = 24; // hours
 
+  // form
+  name = '';
+  values = 1;
+  type = undefined;
+
   constructor() {
     this.units = units;
+    this.measurementTypes = measurementTypes;
     this.measurements = measurements;
   }
 
@@ -69,15 +76,20 @@ export class App {
   }
 
   addMeasurement() {
-    let measurement = {
-      name: 'SNMP Custom',
-      type: measurementTypes.snmp,
-      values: 12,
-      size: 12 * measurementTypes.snmp.sizePerValue,
-      number: 0,
-      interval: 0
-    };
+    if (this.name !== '' && this.type !== 'Select a type...') {
+      let measurement = {
+        name: this.name,
+        type: this.type,
+        values: this.values,
+        size: this.values * this.type.sizePerValue,
+        number: 0,
+        interval: this.type.defaultInterval
+      };
 
-    this.measurements.push(measurement);
+      this.measurements.push(measurement);
+      this.name = '';
+      this.type = undefined;
+      this.values = 1;
+    }
   }
 }
