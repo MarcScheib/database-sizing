@@ -166,7 +166,7 @@
               <tr repeat.for="measurement of measurements">
                 <td>${measurement.name}</td>
                 <td><span
-                  title="${measurement.values} value${measurement.values != 1 ? 's' : ''} à ${measurement.sizePerValue} bytes">${measurement.size}</span>
+                  title="${measurement.values} value${measurement.values != 1 ? 's' : ''} à ${measurement.type.sizePerValue} bytes">${measurement.size}</span>
                 </td>
                 <td>
                   <div class="input-group">

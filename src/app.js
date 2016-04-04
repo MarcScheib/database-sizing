@@ -5,7 +5,7 @@ import {units} from './units';
 
 export class App {
   units = [];
-  measurements = {};
+  measurements = [];
   day = 86400; // seconds
   week = 604800; // seconds
   year = 31536000; // seconds
@@ -66,5 +66,18 @@ export class App {
 
   getDaysInSeconds(days) {
     return days * 24 * 60 * 60;
+  }
+
+  addMeasurement() {
+    let measurement = {
+      name: 'SNMP Custom',
+      type: measurementTypes.snmp,
+      values: 12,
+      size: 12 * measurementTypes.snmp.sizePerValue,
+      number: 0,
+      interval: 0
+    };
+
+    this.measurements.push(measurement);
   }
 }
