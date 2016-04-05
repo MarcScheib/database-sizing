@@ -1,3 +1,18 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/MarcScheib/database-sizing/compare/0.1.0...v0.2.0) (2016-04-05)
+
+
+### Bug Fixes
+
+* **style:** fix path to font-awesome fonts ([daa23c0](https://github.com/MarcScheib/database-sizing/commit/daa23c0))
+
+### Features
+
+* **sizing:** add custom measurements handling ([f241234](https://github.com/MarcScheib/database-sizing/commit/f241234))
+* **sizing:** add measurement type enum ([ba4d303](https://github.com/MarcScheib/database-sizing/commit/ba4d303))
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/MarcScheib/database-sizing/compare/0.0.1...v0.1.0) (2016-04-03)
 
