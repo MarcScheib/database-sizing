@@ -1,8 +1,8 @@
-import "jquery";
-import "bootstrap";
-import {measurementTypes} from "./measurement-types";
-import {measurements} from "./measurements";
-import {units} from "./units";
+import 'jquery';
+import 'bootstrap';
+import {measurementTypes} from './measurement-types';
+import {measurements} from './measurements';
+import {units} from './units';
 
 export class App {
   units = [];
