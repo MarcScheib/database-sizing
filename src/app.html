@@ -78,8 +78,7 @@
                 <td>Enable/Disable Aggregation</td>
                 <td>
                   <div class="onoffswitch">
-                    <input disabled type="checkbox" class="onoffswitch-checkbox" id="data-aggregation"
-                           checked.bind="dataAggregation">
+                    <input type="checkbox" class="onoffswitch-checkbox" id="data-aggregation" checked.bind="dataAggregation">
                     <label class="onoffswitch-label" for="data-aggregation">
                       <span class="onoffswitch-inner"></span>
                       <span class="onoffswitch-switch"></span>
@@ -102,8 +101,7 @@
                 <td>Stage 1 Interval</td>
                 <td>
                   <div class="input-group">
-                    <input type="number" class="form-control form-number-input"
-                           value.bind="stage1interval" min="0">
+                    <input type="number" class="form-control form-number-input" value.bind="stage1interval" min="0">
                     <span class="input-group-addon input-group-addon-no-size">h</span>
                   </div>
                 </td>
@@ -165,13 +163,14 @@
             <tbody>
               <tr repeat.for="measurement of measurements">
                 <td>${measurement.name}</td>
-                <td><span
-                  title="${measurement.values} value${measurement.values != 1 ? 's' : ''} à ${measurement.type.sizePerValue} bytes">${measurement.size}</span>
+                <td>
+                  <span title="${measurement.values} value${measurement.values != 1 ? 's' : ''} à ${measurement.type.sizePerValue} bytes">
+                    ${measurement.size}
+                  </span>
                 </td>
                 <td>
                   <div class="input-group">
-                    <input type="number" class="form-control form-number-input" value.bind="measurement.interval"
-                           min="0">
+                    <input type="number" class="form-control form-number-input" value.bind="measurement.interval" min="0">
                     <span class="input-group-addon input-group-addon-no-size">s</span>
                   </div>
                 </td>
@@ -199,15 +198,9 @@
               <tr repeat.for="measurement of measurements">
                 <td>${measurement.name}</td>
                 <td>${measurement.number * measurement.size / units[unitId].factor | numberFormat}</td>
-                <td>${measurement.number * measurement.size * day / measurement.interval / units[unitId].factor |
-                  numberFormat}
-                </td>
-                <td>${measurement.number * measurement.size * week / measurement.interval / units[unitId].factor |
-                  numberFormat}
-                </td>
-                <td>${measurement.number * measurement.size * year / measurement.interval / units[unitId].factor |
-                  numberFormat}
-                </td>
+                <td>${measurement.number * measurement.size * day / measurement.interval / units[unitId].factor | numberFormat}</td>
+                <td>${measurement.number * measurement.size * week / measurement.interval / units[unitId].factor | numberFormat}</td>
+                <td>${measurement.number * measurement.size * year / measurement.interval / units[unitId].factor | numberFormat}</td>
               </tr>
             </tbody>
           </table>
@@ -219,8 +212,7 @@
                 <div class="form-group row">
                   <label for="name" class="col-sm-2 form-control-label card-text">Name</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" placeholder="Enter a name..."
-                           value.bind="name">
+                    <input type="text" class="form-control" id="name" placeholder="Enter a name..." value.bind="name">
                   </div>
                 </div>
                 <div class="form-group row">
