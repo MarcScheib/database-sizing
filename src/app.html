@@ -34,7 +34,7 @@
               <tr>
                 <th>Custom Time</th>
                 <th>Non-Aggregated Size</th>
-                <th if.bind="dataAggregation">Aggregated Size</th>
+                <th>Estimated Aggregated Size</th>
               </tr>
             </thead>
             <tbody>
@@ -46,7 +46,7 @@
                   </div>
                 </td>
                 <td>${customSizeNonAggregated | numberFormat}</td>
-                <td if.bind="dataAggregation">${customSizeAggregated | numberFormat}</td>
+                <td>${customSizeAggregated | numberFormat}</td>
               </tr>
             </tbody>
           </table>

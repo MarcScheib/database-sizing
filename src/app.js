@@ -66,7 +66,24 @@ export class App {
   }
 
   get customSizeAggregated() {
+    if (this.dataAggregation === false) {
+      return 0;
+    }
+
     let size = 0;
+    for (let j = 0; j < this.customTime; j++) {
+      for (let i = 0; i < this.measurements.length; i++) {
+        if (j <= this.stage1age) {
+          size += this.measurements[i].size * this.measurements[i].number * this.day / this.measurements[i].interval;
+        } else if (j > this.stage1age && j <= this.stage2age) {
+          size += this.measurements[i].size * this.measurements[i].number * this.day / this.measurements[i].interval / (this.stage1interval * 60);
+        } else if (j > this.stage2age && j <= this.stage3age) {
+          size += this.measurements[i].size * this.measurements[i].number * this.day / this.measurements[i].interval / (this.stage2interval * 60);
+        } else {
+          size += this.measurements[i].size * this.measurements[i].number * this.day / this.measurements[i].interval / (this.stage3interval * 60);
+        }
+      }
+    }
 
     return size / this.units[this.unitId].factor;
   }
