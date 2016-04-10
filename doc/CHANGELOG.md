@@ -1,3 +1,13 @@
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/MarcScheib/database-sizing/compare/0.2.1...v0.3.0) (2016-04-10)
+
+
+### Features
+
+* **sizing:** add estimated aggregated size ([ce8d8cf](https://github.com/MarcScheib/database-sizing/commit/ce8d8cf))
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/MarcScheib/database-sizing/compare/0.2.0...v0.2.1) (2016-04-10)
 
