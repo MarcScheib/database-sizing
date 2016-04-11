@@ -7,7 +7,8 @@ export let measurements = [
     values: 1,
     size: measurementTypes[0].sizePerValue,
     number: 0,
-    interval: 60
+    interval: 60,
+    deletable: false
   },
   {
     name: 'SNMP Interface',
@@ -15,6 +16,7 @@ export let measurements = [
     values: 12,
     size: 12 * measurementTypes[1].sizePerValue,
     number: 0,
-    interval: 300
+    interval: 300,
+    deletable: false
   }
 ];

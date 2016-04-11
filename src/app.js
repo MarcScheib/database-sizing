@@ -100,13 +100,24 @@ export class App {
         values: this.values,
         size: this.values * this.type.sizePerValue,
         number: 0,
-        interval: this.type.defaultInterval
+        interval: this.type.defaultInterval,
+        deletable: true
       };
 
       this.measurements.push(measurement);
       this.name = '';
       this.type = undefined;
       this.values = 1;
+    }
+  }
+
+  deleteMeasurement(index) {
+    if (index >= 0 && index < this.measurements.length) {
+      let measurement = this.measurements[index];
+
+      if (measurement.deletable) {
+        this.measurements.splice(index, 1);
+      }
     }
   }
 }

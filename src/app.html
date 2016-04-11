@@ -157,7 +157,7 @@
                 <th>Measurement Type</th>
                 <th>Size per Measurement [bytes]</th>
                 <th>Measurement Interval</th>
-                <th>Number of Measurements</th>
+                <th colspan="2">Number of Measurements</th>
               </tr>
             </thead>
             <tbody>
@@ -178,6 +178,11 @@
                   <div class="input-group">
                     <input type="number" class="form-control form-number-input" value.bind="measurement.number" min="0">
                     <span class="input-group-addon input-group-addon-no-size">#</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="text-center">
+                    <i class="fa fa-fw fa-trash" click.delegate="deleteMeasurement($index)" if.bind="measurement.deletable"></i>
                   </div>
                 </td>
               </tr>
