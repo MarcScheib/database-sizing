@@ -1,3 +1,13 @@
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/MarcScheib/database-sizing/compare/0.3.0...v0.4.0) (2016-04-11)
+
+
+### Features
+
+* **sizing:** add delete functionality added measurements ([4d00558](https://github.com/MarcScheib/database-sizing/commit/4d00558))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/MarcScheib/database-sizing/compare/0.2.1...v0.3.0) (2016-04-10)
 
