@@ -1,3 +1,14 @@
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/MarcScheib/database-sizing/compare/0.4.0...v0.4.1) (2016-04-12)
+
+
+### Bug Fixes
+
+* **bundle:** remove jquery from export and do not minify vendor bundle ([4f60387](https://github.com/MarcScheib/database-sizing/commit/4f60387))
+* **sizing:** fix aggregation calculation ([29febc7](https://github.com/MarcScheib/database-sizing/commit/29febc7))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/MarcScheib/database-sizing/compare/0.3.0...v0.4.0) (2016-04-11)
 
