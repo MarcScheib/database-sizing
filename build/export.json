@@ -8,8 +8,6 @@
     "jspm_packages/system-polyfills.js",
     "jspm_packages/system-csp-production.js",
     "jspm_packages/github/FortAwesome/font-awesome@4.5.0/fonts/*",
-    "jspm_packages/github/components/jquery@2.2.1.js",
-    "jspm_packages/github/components/jquery@2.2.1/jquery.js",
     "dist/app-build-*.js",
     "dist/aurelia-*.js",
     "dist/vendor-*.js"
