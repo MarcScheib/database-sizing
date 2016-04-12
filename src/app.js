@@ -73,14 +73,14 @@ export class App {
     let size = 0;
     for (let j = 0; j < this.customTime; j++) {
       for (let i = 0; i < this.measurements.length; i++) {
-        if (j <= this.stage1age) {
+        if (j < this.stage1age) {
           size += this.measurements[i].size * this.measurements[i].number * this.day / this.measurements[i].interval;
-        } else if (j > this.stage1age && j <= this.stage2age) {
-          size += this.measurements[i].size * this.measurements[i].number * this.day / this.measurements[i].interval / (this.stage1interval * 60);
-        } else if (j > this.stage2age && j <= this.stage3age) {
-          size += this.measurements[i].size * this.measurements[i].number * this.day / this.measurements[i].interval / (this.stage2interval * 60);
+        } else if (j => this.stage1age && j < this.stage2age) {
+          size += this.measurements[i].size * this.measurements[i].number * this.day / (this.stage1interval * 3600);
+        } else if (j => this.stage2age && j < this.stage3age) {
+          size += this.measurements[i].size * this.measurements[i].number * this.day / (this.stage2interval * 3600);
         } else {
-          size += this.measurements[i].size * this.measurements[i].number * this.day / this.measurements[i].interval / (this.stage3interval * 60);
+          size += this.measurements[i].size * this.measurements[i].number * this.day / (this.stage3interval * 3600);
         }
       }
     }
