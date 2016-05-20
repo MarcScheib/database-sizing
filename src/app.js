@@ -1,9 +1,13 @@
 import 'jquery';
 import 'bootstrap';
-import {measurementTypes} from './measurement-types';
-import {measurements} from './measurements';
-import {units} from './units';
 
+import {inject} from 'aurelia-framework';
+
+import {getDaysInSeconds} from './util/calculation-util';
+import {measurements} from './measurements';
+import {units} from './util/units';
+
+@inject(measurements)
 export class App {
   units = [];
   measurements = [];
@@ -22,14 +26,8 @@ export class App {
   stage3age = 180; // days
   stage3interval = 24; // hours
 
-  // form
-  name = '';
-  values = 1;
-  type = undefined;
-
-  constructor() {
+  constructor(measurements) {
     this.units = units;
-    this.measurementTypes = measurementTypes;
     this.measurements = measurements;
   }
 
@@ -60,7 +58,7 @@ export class App {
   get customSizeNonAggregated() {
     let size = 0;
     for (let i = 0; i < this.measurements.length; i++) {
-      size += this.measurements[i].size * this.measurements[i].number * this.getDaysInSeconds(this.customTime) / this.measurements[i].interval;
+      size += this.measurements[i].size * this.measurements[i].number * getDaysInSeconds(this.customTime) / this.measurements[i].interval;
     }
     return size / this.units[this.unitId].factor;
   }
@@ -86,29 +84,6 @@ export class App {
     }
 
     return size / this.units[this.unitId].factor;
-  }
-
-  getDaysInSeconds(days) {
-    return days * 24 * 60 * 60;
-  }
-
-  addMeasurement() {
-    if (this.name !== '' && this.type !== 'Select a type...') {
-      let measurement = {
-        name: this.name,
-        type: this.type,
-        values: this.values,
-        size: this.values * this.type.sizePerValue,
-        number: 0,
-        interval: this.type.defaultInterval,
-        deletable: true
-      };
-
-      this.measurements.push(measurement);
-      this.name = '';
-      this.type = undefined;
-      this.values = 1;
-    }
   }
 
   deleteMeasurement(index) {

@@ -1,4 +1,4 @@
-import {measurementTypes} from './measurement-types';
+import {measurementTypes} from './resources/measurement-types';
 
 export let measurements = [
   {
