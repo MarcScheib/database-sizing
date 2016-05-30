@@ -2,7 +2,7 @@
   "bundles": {
     "dist/app-build": {
       "includes": [
-        "[*.js]",
+        "[**/*.js]",
         "*.html!text"
       ],
       "options": {
@@ -14,16 +14,12 @@
     },
     "dist/aurelia": {
       "includes": [
-        "aurelia-framework",
         "aurelia-bootstrapper",
-        "aurelia-router",
-        "aurelia-templating-binding",
-        "aurelia-polyfills",
-        "aurelia-templating-resources",
-        "aurelia-templating-router",
+        "aurelia-framework",
         "aurelia-loader-default",
-        "aurelia-history-browser",
-        "aurelia-logging-console"
+        "aurelia-logging-console",
+        "aurelia-templating-binding",
+        "aurelia-templating-resources"
       ],
       "options": {
         "inject": true,
