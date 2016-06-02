@@ -1,6 +1,6 @@
 import {measurementTypes} from './resources/measurement-types';
 
-export let measurements = [
+export let measurementList = [
   {
     name: 'Ping',
     type: measurementTypes[0],

@@ -4,10 +4,10 @@ import 'bootstrap';
 import {inject} from 'aurelia-framework';
 
 import {getDaysInSeconds} from './util/calculation-util';
-import {measurements} from './measurements';
+import {measurementList} from './measurements';
 import {units} from './util/units';
 
-@inject(measurements)
+@inject(measurementList)
 export class App {
   units = [];
   measurements = [];
