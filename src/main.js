@@ -7,7 +7,8 @@ LogManager.setLevel(LogManager.logLevel.debug);
 export function configure(aurelia) {
   aurelia.use
     .defaultBindingLanguage()
-    .defaultResources();
+    .defaultResources()
+    .plugin('aurelia-animator-css');
 
   aurelia.start()
     .then(a => a.setRoot('app', document.body));
