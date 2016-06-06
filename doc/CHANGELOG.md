@@ -1,3 +1,13 @@
+<a name="0.4.3"></a>
+## [0.4.3](https://github.com/MarcScheib/database-sizing/compare/0.4.2...v0.4.3) (2016-06-06)
+
+
+### Features
+
+* add animations to measurement list for add/remove events ([7a6cd24](https://github.com/MarcScheib/database-sizing/commit/7a6cd24))
+
+
+
 <a name="0.4.2"></a>
 ## [0.4.2](https://github.com/MarcScheib/database-sizing/compare/0.4.1...v0.4.2) (2016-06-02)
 
