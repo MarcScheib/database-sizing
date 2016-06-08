@@ -1,3 +1,9 @@
+<a name="0.4.4"></a>
+## [0.4.4](https://github.com/MarcScheib/database-sizing/compare/0.4.3...v0.4.4) (2016-06-08)
+
+
+
+
 <a name="0.4.3"></a>
 ## [0.4.3](https://github.com/MarcScheib/database-sizing/compare/0.4.2...v0.4.3) (2016-06-06)
 
